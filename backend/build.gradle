@@ -42,5 +42,6 @@ appengine {
     }
 }
 
+//Redirecting location for SDK
 appengine.tools.cloudSdkHome="D:/Ru/AND_D/google-cloud-sdk"
 

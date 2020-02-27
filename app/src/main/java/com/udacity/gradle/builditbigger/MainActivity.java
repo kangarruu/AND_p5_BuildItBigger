@@ -1,7 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
+        //Launch the GCE asyncTask upon button click
         new EndpointsAsyncTask().execute(this);
     }
+
 
 
 }

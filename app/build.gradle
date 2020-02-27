@@ -20,6 +20,7 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        flavorDimensions "version"
         packagingOptions {
             exclude 'META-INF/DEPENDENCIES'
         }
@@ -31,6 +32,18 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    productFlavors{
+        free {
+            dimension "version"
+            applicationId 'com.udacity.gradle.builditbigger.free'
+        }
+        paid {
+            dimension "version"
+            applicationId 'com.udacity.gradle.builditbigger.paid'
         }
     }
 }
@@ -47,8 +60,11 @@ dependencies {
     androidTestImplementation('androidx.test.espresso:espresso-core:3.2.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation 'androidx.test:core:1.0.0'
     testImplementation 'junit:junit:4.12'
+
     implementation project(path: ':JavaJoker')
     implementation project(path: ':jokeframe')
 }

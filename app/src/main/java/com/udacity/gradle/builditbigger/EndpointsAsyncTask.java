@@ -3,10 +3,6 @@ package com.udacity.gradle.builditbigger;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.text.PrecomputedText;
-import android.util.Log;
-import android.util.Pair;
-import android.widget.Toast;
 
 import com.example.jokeframe.JokeActivity;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -53,6 +49,7 @@ public class EndpointsAsyncTask extends AsyncTask<Context, Void, String> {
 
     @Override
     protected void onPostExecute(String joke) {
+        //Launch the jokeFrame Android library to display the joke
         Intent launchAndroidLibrary = new Intent(context, JokeActivity.class);
         launchAndroidLibrary.putExtra(JOKE_INTENT_KEY, joke);
         context.startActivity(launchAndroidLibrary);
