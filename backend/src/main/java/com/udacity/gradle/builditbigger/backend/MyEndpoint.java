@@ -5,8 +5,6 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 
-import javax.inject.Named;
-
 /** An endpoint class we are exposing */
 @Api(
         name = "myApi",
@@ -23,8 +21,7 @@ public class MyEndpoint {
     @ApiMethod(name = "fetchJoke")
     public MyJoke fetchJoke() {
         MyJoke fetchedJoke = new MyJoke();
-        JokeProvider jokeProvider = new JokeProvider();
-        fetchedJoke.setData(jokeProvider.getJoke());
+        fetchedJoke.setData(JokeProvider.getJoke());
 
         return fetchedJoke;
     }
