@@ -34,5 +34,13 @@ dependencies {
 
 }
 
+//IP host info for using physical device
+appengine {
+    run {
+        host = "0.0.0.0"
+        port = 8080
+    }
+}
+
 appengine.tools.cloudSdkHome="D:/Ru/AND_D/google-cloud-sdk"
 

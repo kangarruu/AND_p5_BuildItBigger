@@ -1,25 +1,22 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.javajoker.JokeProvider;
-import com.example.jokeframe.JokeActivity;
-
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String JOKE_INTENT_KEY = "joke_key";
+    private static final String LOG_TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 
 
@@ -46,10 +43,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        String joke = JokeProvider.getJoke();
-        Intent launchAndroidLibrary = new Intent(this, JokeActivity.class);
-        launchAndroidLibrary.putExtra(JOKE_INTENT_KEY, joke);
-        startActivity(launchAndroidLibrary);
+        new EndpointsAsyncTask().execute(this);
     }
 
 
